@@ -1,0 +1,12 @@
+<?php
+
+$databases['default']['default'] = array(
+  'database' => getenv('DATABASE_NAME') ?: 'drupal',
+  'username' => getenv('DATABASE_USER') ?: 'drupal',
+  'password' => getenv('DATABASE_PASSWORD') ?: 'drupal',
+  'prefix' => '',
+  'host' => getenv('DATABASE_HOST') ?: 'localhost',
+  'port' => 3306,
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);
