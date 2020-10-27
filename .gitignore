@@ -1,0 +1,27 @@
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+
+# Ignore vendor folder, it will be recreated from composer.lock at build.
+vendor
+
+# Ignore drupal core.
+web/core
+
+# Ignore paths that contain user-generated content.
+web/sites/*/files
+/files-private
+web/sites/*/private
+
+# Ignore contrib modules. These should be created during build process.
+web/modules/contrib
+web/themes/contrib
+web/profiles/contrib
+web/libraries/contrib
+drush/contrib
+
+# Ignore custom theme build artifacts
+web/themes/custom/*/node_modules
+web/themes/custom/*/styleguide
