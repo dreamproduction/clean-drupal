@@ -9,11 +9,11 @@ The database connection details should be set in the untracked file `web/sites/d
 # Clone the repo
 git clone https://github.com/dreamproduction/clean-drupal.git clean-drupal
 # Install dependecies, optimized for production
-php -d memory_limit=-1 composer install --no-interaction --no-dev -o
+php -d memory_limit=-1 /path/to/composer install --no-interaction --no-dev -o
 # Install a clean drupal.
-drush site-install --verbose --account-name=$SITE_USERNAME --account-pass=$SITE_PASSWORD --yes
+drush site-install --account-name=$SITE_USERNAME --account-pass=$SITE_PASSWORD --yes
 # Delete shortcut entities so we can import the site config.
-drush entity:delete shortcut || echo 'Failed removing shortcuts'
+drush entity:delete shortcut
 # Set the site uuid the same as the site uuid in the exported config,
 # Drupal only allows importing config for the same site.
 drush cset system.site uuid 08efa902-1be5-4e01-90f6-577b4c3de64f -y
@@ -32,9 +32,9 @@ chmod +w -R web/sites/default
 # clean install every time, use git clone and skip the first 
 git pull
 # Install dependecies, optimized for production
-php -d memory_limit=-1 composer install --no-interaction --no-dev -o
+php -d memory_limit=-1 /path/to/composer install --no-interaction --no-dev -o
 # Run the db updates.
-drush updb -y --verbose
+drush updb -y
 # Run import of config twice, sometimes the config dependencies are not
 # resolved correctly by drupal and running this twice is needed.
 drush cim -y sync
